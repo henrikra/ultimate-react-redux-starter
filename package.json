@@ -6,7 +6,7 @@
   "repository": "git@github.com:henrikra/playlistify.git",
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --inline --hot",
-    "test": "./node_modules/.bin/mocha test/.setup.js ./test --watch --recursive --require test/css-null-compiler.js"
+    "test": "./node_modules/.bin/_mocha test/.setup.js ./test --watch --recursive --require test/css-null-compiler.js"
   },
   "author": "Henrik Raitasola",
   "license": "ISC",

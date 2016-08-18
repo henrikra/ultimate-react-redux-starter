@@ -14,7 +14,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader?sourceMap', 'postcss-loader']
+        loaders: ['style-loader', 'css-loader?sourceMap']
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
