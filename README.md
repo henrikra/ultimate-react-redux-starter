@@ -17,4 +17,4 @@ Starter for your React-Redux app
 [http://localhost:8080](http://localhost:8080)
 
 ### How to run tests
-`npm run test`
+`npm test`
