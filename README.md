@@ -1,11 +1,11 @@
-# Playlistify
+# Ultimate React - Redux starter
 
-Make Youtube playlists from the fly
+Starter for your React-Redux app
 
 ### How to setup environment
 
 ```
-> git clone git@github.com:henrikra/playlistify.git
+> git clone git@github.com:henrikra/ultimate-react-redux-starter.git
 > vagrant up
 > vagrant ssh
 > cd /vagrant
