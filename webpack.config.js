@@ -45,8 +45,7 @@ const common = {
         loader: "url?limit=10000&mimetype=image/svg+xml"
       }
     ]
-  },
-  devtool: '#inline-source-map'
+  }
 };
 
 
@@ -54,10 +53,19 @@ let config;
 
 switch (process.env.npm_lifecycle_event) {
   case 'start':
-    config = merge(common, parts.devServer(), parts.setupCSS(PATHS.style));
+    config = merge(
+      common,
+      {devtool: 'eval-source-map'},
+      parts.devServer(),
+      parts.setupCSS(PATHS.style)
+    );
     break;
   case 'build':
-    config = merge(common, parts.setupCSS(PATHS.style));
+    config = merge(
+      common,
+      {devtool: 'source-map'},
+      parts.setupCSS(PATHS.style)
+    );
     break;
   default:
     config = merge(common, {});
