@@ -19,13 +19,14 @@ exports.devServer = function() {
   };
 }
 
-exports.setupCSS = function() {
+exports.setupCSS = function(path) {
   return {
     module: {
       loaders: [
         {
           test: /\.css$/,
           loaders: ['style-loader', 'css-loader?sourceMap'],
+          include: path
         }
       ]
     }

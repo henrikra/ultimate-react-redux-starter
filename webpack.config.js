@@ -6,6 +6,7 @@ const parts = require('./libs/parts');
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
+  style: path.join(__dirname, 'style'),
   build: path.join(__dirname, 'build')
 };
 
@@ -53,10 +54,10 @@ let config;
 
 switch (process.env.npm_lifecycle_event) {
   case 'start':
-    config = merge(common, parts.devServer(), parts.setupCSS());
+    config = merge(common, parts.devServer(), parts.setupCSS(PATHS.style));
     break;
   case 'build':
-    config = merge(common, parts.setupCSS());
+    config = merge(common, parts.setupCSS(PATHS.style));
     break;
   default:
     config = merge(common, {});
