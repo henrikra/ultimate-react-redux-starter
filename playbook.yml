@@ -8,7 +8,7 @@
         update_cache: yes
     - name: Download Node.js
       get_url:
-        url: https://deb.nodesource.com/setup_6.x
+        url: http://deb.nodesource.com/setup_6.x
         dest: /tmp/node-setup
     - name: Update NodeJS repository
       shell: "bash node-setup"
