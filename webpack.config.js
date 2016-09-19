@@ -1,4 +1,8 @@
-module.exports = {
+const merge = require('webpack-merge');
+
+const parts = require('./libs/parts');
+
+const common = {
   entry: './src',
   output: {
     path: __dirname,
@@ -38,11 +42,12 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    host: '0.0.0.0',
-    watchOptions: {
-      poll: true
-    }
-  },
   devtool: '#inline-source-map'
 };
+
+
+let config;
+
+config = merge(common, parts.devServer());
+
+module.exports = config;
