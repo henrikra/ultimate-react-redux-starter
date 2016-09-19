@@ -5,8 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:henrikra/ultimate-react-redux-starter.git",
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --inline --hot",
-    "test": "./node_modules/.bin/_mocha test/.setup.js ./test --watch --recursive --require test/css-null-compiler.js"
+    "start": "webpack-dev-server --inline --hot",
+    "test": "mocha test/.setup.js ./test --watch --recursive --require test/css-null-compiler.js"
   },
   "author": "Henrik Raitasola",
   "license": "ISC",
