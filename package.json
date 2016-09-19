@@ -5,6 +5,7 @@
   "main": "index.js",
   "repository": "git@github.com:henrikra/ultimate-react-redux-starter.git",
   "scripts": {
+    "build": "webpack",
     "start": "webpack-dev-server",
     "test": "mocha test/.setup.js ./test --watch --recursive --require test/css-null-compiler.js"
   },
