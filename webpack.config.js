@@ -1,9 +1,14 @@
+const path = require('path');
 const merge = require('webpack-merge');
 
 const parts = require('./libs/parts');
 
+const PATHS = {
+  app: path.join(__dirname, 'src')
+};
+
 const common = {
-  entry: './src',
+  entry: PATHS.app,
   output: {
     path: __dirname,
     publicPath: '/',
@@ -48,6 +53,15 @@ const common = {
 
 let config;
 
-config = merge(common, parts.devServer());
+switch (process.env.npm_lifecycle_event) {
+  case 'start':
+    config = merge(common, parts.devServer());
+    break;
+  case 'build':
+    config = merge(common, {});
+    break;
+  default:
+    config = merge(common, {});
+}
 
 module.exports = config;
