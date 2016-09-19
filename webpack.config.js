@@ -4,13 +4,14 @@ const merge = require('webpack-merge');
 const parts = require('./libs/parts');
 
 const PATHS = {
-  app: path.join(__dirname, 'src')
+  app: path.join(__dirname, 'src'),
+  build: path.join(__dirname, 'build')
 };
 
 const common = {
   entry: PATHS.app,
   output: {
-    path: __dirname,
+    path: PATHS.build,
     publicPath: '/',
     filename: 'bundle.js'
   },
