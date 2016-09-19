@@ -18,3 +18,16 @@ exports.devServer = function() {
     ]
   };
 }
+
+exports.setupCSS = function() {
+  return {
+    module: {
+      loaders: [
+        {
+          test: /\.css$/,
+          loaders: ['style-loader', 'css-loader?sourceMap'],
+        }
+      ]
+    }
+  }
+}
