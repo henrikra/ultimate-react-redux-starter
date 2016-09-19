@@ -1,5 +1,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
+const validate = require('webpack-validator');
 
 const parts = require('./libs/parts');
 
@@ -65,4 +66,4 @@ switch (process.env.npm_lifecycle_event) {
     config = merge(common, {});
 }
 
-module.exports = config;
+module.exports = validate(config);
