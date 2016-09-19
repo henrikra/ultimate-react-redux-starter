@@ -24,10 +24,6 @@ const common = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        loaders: ['style-loader', 'css-loader?sourceMap']
-      },
-      {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
         loader: "url?limit=10000&mimetype=application/font-woff"
       },
@@ -57,10 +53,10 @@ let config;
 
 switch (process.env.npm_lifecycle_event) {
   case 'start':
-    config = merge(common, parts.devServer());
+    config = merge(common, parts.devServer(), parts.setupCSS());
     break;
   case 'build':
-    config = merge(common, {});
+    config = merge(common, parts.setupCSS());
     break;
   default:
     config = merge(common, {});
