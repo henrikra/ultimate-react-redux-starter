@@ -6,6 +6,9 @@
     - name: Update apt cache
       apt:
         update_cache: yes
+    - name: Install Git
+      apt:
+        name: git
     - name: Download Node.js
       get_url:
         url: http://deb.nodesource.com/setup_6.x

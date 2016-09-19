@@ -1,6 +1,8 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const repoName = require('git-repo-name');
 
 const parts = require('./libs/parts');
 
@@ -45,7 +47,8 @@ const common = {
         loader: "url?limit=10000&mimetype=image/svg+xml"
       }
     ]
-  }
+  },
+  plugins: [new HtmlWebpackPlugin({template: 'index.html'})]
 };
 
 
@@ -64,6 +67,13 @@ switch (process.env.npm_lifecycle_event) {
     config = merge(
       common,
       {devtool: 'source-map'},
+      {
+        output: {
+          path: PATHS.build,
+          publicPath: `/${repoName.sync()}/`,
+          filename: 'bundle.js'
+        }
+      },
       parts.setupCSS(PATHS.style)
     );
     break;
