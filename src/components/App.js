@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 require('../../style/style.css');
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        Hello world!
-      </div>
-    );
-  }
-}
+const App = () => {
+  <div>
+    Hello world!
+  </div>
+};
+
+export default App;
