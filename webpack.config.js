@@ -9,7 +9,7 @@ const parts = require('./libs/parts');
 const PATHS = {
   app: path.join(__dirname, 'src', 'index.jsx'),
   style: path.join(__dirname, 'style'),
-  build: path.join(__dirname, 'build')
+  build: path.join(__dirname, 'build'),
 };
 
 const common = {
@@ -17,7 +17,7 @@ const common = {
   output: {
     path: PATHS.build,
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     preLoaders: [
@@ -27,31 +27,31 @@ const common = {
       {
         test: /\.jsx?$/,
         loaders: ['react-hot', 'babel'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/font-woff"
+        loader: 'url?limit=10000&mimetype=application/font-woff',
       },
       {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/font-woff"
+        loader: 'url?limit=10000&mimetype=application/font-woff',
       },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/octet-stream"
+        loader: 'url?limit=10000&mimetype=application/octet-stream',
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "file"
+        loader: 'file',
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=image/svg+xml"
-      }
-    ]
+        loader: 'url?limit=10000&mimetype=image/svg+xml',
+      },
+    ],
   },
-  plugins: [new HtmlWebpackPlugin({template: 'index.html'})],
+  plugins: [new HtmlWebpackPlugin({ template: 'index.html' })],
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
@@ -64,7 +64,7 @@ switch (process.env.npm_lifecycle_event) {
   case 'start':
     config = merge(
       common,
-      {devtool: 'eval-source-map'},
+      { devtool: 'eval-source-map' },
       parts.devServer(),
       parts.setupCSS(PATHS.style)
     );
@@ -72,13 +72,13 @@ switch (process.env.npm_lifecycle_event) {
   case 'build':
     config = merge(
       common,
-      {devtool: 'source-map'},
+      { devtool: 'source-map' },
       {
         output: {
           path: PATHS.build,
           publicPath: `/${repoName.sync()}/`,
-          filename: 'bundle.js'
-        }
+          filename: 'bundle.js',
+        },
       },
       parts.setupCSS(PATHS.style)
     );
