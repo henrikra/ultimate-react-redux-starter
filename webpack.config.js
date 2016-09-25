@@ -7,7 +7,7 @@ const repoName = require('git-repo-name');
 const parts = require('./libs/parts');
 
 const PATHS = {
-  app: path.join(__dirname, 'src'),
+  app: path.join(__dirname, 'src', 'index.jsx'),
   style: path.join(__dirname, 'style'),
   build: path.join(__dirname, 'build')
 };
@@ -25,7 +25,7 @@ const common = {
     ],
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loaders: ['react-hot', 'babel'],
         exclude: /node_modules/
       },
