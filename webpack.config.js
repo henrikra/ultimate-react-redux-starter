@@ -20,6 +20,9 @@ const common = {
     filename: 'bundle.js'
   },
   module: {
+    preLoaders: [
+      {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/}
+    ],
     loaders: [
       {
         test: /\.js$/,
