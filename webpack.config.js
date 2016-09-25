@@ -51,7 +51,10 @@ const common = {
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({template: 'index.html'})]
+  plugins: [new HtmlWebpackPlugin({template: 'index.html'})],
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
 };
 
 
